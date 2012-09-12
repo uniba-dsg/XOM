@@ -128,7 +128,7 @@ class XOMHandler
             element = factory.startMakingElement(qualifiedName, namespaceURI, locator);
         }
         else {  // root
-            element = factory.makeRootElement(qualifiedName, namespaceURI);
+            element = factory.makeRootElement(qualifiedName, namespaceURI, locator);
             if (element == null) { // null root; that's a no-no
                 throw new NullPointerException(
                     "Factory failed to create root element."

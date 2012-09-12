@@ -100,6 +100,13 @@ public class NodeFactory {
         return startMakingElement(name, namespace);    
     }
 
+    /**
+     * This is the same method as {@link #makeRootElement(String, String)} except that a locator
+     * can be passed to it. Some implementations might choose to do so, but dont take it for granted.
+     */
+    public Element makeRootElement(String name, String namespace, Locator locator) {
+        return startMakingElement(name, namespace, locator);
+    }
     
     /**
      * <p>
