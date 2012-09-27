@@ -22,6 +22,7 @@
 package nu.xom;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -45,9 +46,9 @@ import java.util.List;
  * @version 1.1b4
  *
  */
-public final class Nodes {
+public final class Nodes implements Iterable<Node>{
     
-    private final List nodes;
+    private final List<Node> nodes;
     
     
     /**
@@ -56,9 +57,20 @@ public final class Nodes {
      * </p>
      */
     public Nodes() {
-        nodes = new ArrayList();
+        nodes = new ArrayList<Node>();
     }
     
+    /**
+     * <p>
+     * Provides the Iterator.
+     * </p>
+     */
+	@Override
+	public Iterator<Node> iterator() {
+		Iterator<Node> inode = nodes.iterator();
+		return inode;
+	}
+
     
     /**
      * <p>
@@ -74,13 +86,13 @@ public final class Nodes {
         if (node == null) {
             throw new NullPointerException("Nodes content must be non-null");
         }
-        nodes = new ArrayList(1);
+        nodes = new ArrayList<Node>(1);
         nodes.add(node);
         
     }
     
     
-    Nodes(List results) {
+    Nodes(List<Node> results) {
         this.nodes = results;
     }
 
@@ -166,11 +178,33 @@ public final class Nodes {
      * @throws NullPointerException if <code>node</code> is null
      */
     public void append(Node node) {
-        if (node == null) {
+    	if (node == null) {
+    		throw new NullPointerException("Nodes content must be non-null");
+    	}
+    	nodes.add(node);
+    }
+    
+    
+    /**
+     * <p>
+     * Adds nodes at the end of this list.
+     * </p>
+     * 
+     * @param nodes the node to add to the list
+     * 
+     * @throws NullPointerException if <code>node</code> is null
+     */
+    public void appendNodes(Nodes nodes) {
+        if (nodes == null) {
             throw new NullPointerException("Nodes content must be non-null");
         }
-        nodes.add(node);
+        nodes.add(nodes);
     }
+    private void add(Nodes nodes) {
+    	for (int i=0; i<nodes.size(); i++) {
+    		this.nodes.add(nodes.get(i));
+    	}
+	}
 
 
     /**
@@ -186,6 +220,6 @@ public final class Nodes {
     public boolean contains(Node node) {
         return nodes.contains(node);
     }
-
+    
     
 }
