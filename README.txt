@@ -1,3 +1,18 @@
+This is a fork of the original XOM project. Simon Harrer already added 
+support for getting line and column numbers out from the current position 
+from the file being worked on. I added missing libraries and foreach support
+for Nodes.java, and fixed the ant script to work properly. 
+Concerning the libraries I added:
+   jaxen-1.1.4.jar
+   jaxen-1.1.4-src.zip
+   tagsoup-1.2.jar
+   servlet-api.jar 
+Last lib is from tomcat 7, put directly into the project, so there is no
+need to softlink the project to the local tomcat install, and things just
+work.
+
+################################################################################
+
 XOM is a library. By itself, it doesn't do much of anything. It exists
 only to be used by other programs. It requires Java 1.2 or later. 
 
