@@ -1,0 +1,6 @@
+/build
+/jaxen-classes
+/testresults
+.classpath
+.project
+/.settings
