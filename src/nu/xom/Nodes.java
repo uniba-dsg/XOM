@@ -119,6 +119,17 @@ public final class Nodes implements Iterable<Node>{
     public boolean isEmpty() {
         return nodes.isEmpty();
     }
+
+    /**
+     * <p>
+     * Returns true if the list contains items, false otherwise.
+     * </p>
+     *
+     * @return true if the list contains items, false otherwise
+     */
+    public boolean hasAny() {
+        return !isEmpty();
+    }
     
     
     /**
