@@ -108,6 +108,17 @@ public final class Nodes implements Iterable<Node>{
     public int size() {
         return nodes.size(); 
     }
+
+    /**
+     * <p>
+     * Returns true if the list is empty, false otherwise.
+     * </p>
+     *
+     * @return true if the list is empty, false otherwise
+     */
+    public boolean isEmpty() {
+        return nodes.isEmpty();
+    }
     
     
     /**
